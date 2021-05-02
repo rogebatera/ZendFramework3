@@ -1,0 +1,17 @@
+<h1>Lista de Pacientes</h1>
+<table class="table table-stripped">
+    <tr>
+        <th>Nome</th>
+        <th>SobreNome</th>
+    </tr>    
+<?php 
+foreach($pacientes as $paciente):
+?>
+    <tr>
+        <td><?= $paciente->getNome(); ?></td>
+        <td><?= $paciente->getSobrenome(); ?></td>
+    </tr>
+<?php
+endforeach;
+?>
+</table>
