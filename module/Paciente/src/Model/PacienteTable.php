@@ -17,4 +17,14 @@ class PacienteTable {
         return $this->tableGateway->select();
     }
 
+    public function getPacientes(){
+        $sqlSelect = $this->tableGateway->getSql()->select();
+        /*$sqlSelect->columns(array(
+            'nome', 'id'
+        ));*/
+        $sqlSelect->join('contato_paciente', 'contato_paciente.paciente_id = paciente.id', '*', 'left');   
+        $resultSet = $this->tableGateway->selectWith($sqlSelect);
+        return $resultSet;
+    }
+
 }

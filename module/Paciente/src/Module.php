@@ -20,9 +20,7 @@ class Module implements ConfigProviderInterface {
             'factories' => [
                 Model\PacienteTable::class => function($container){
                     $tableGateway = $container->get(Model\PacienteTableGateway::class);
-                    return new Model\PacienteTable($tableGateway);
-                    //var_dump($tableGateway);
-                    //die;    
+                    return new Model\PacienteTable($tableGateway); 
                 },
                 Model\PacienteTableGateway::class => function($container){
                     $dbAdapter = $container->get(AdapterInterface::class);

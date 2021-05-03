@@ -1,17 +1,18 @@
 <h1>Lista de Pacientes</h1>
-<table class="table table-stripped">
-    <tr>
-        <th>Nome</th>
-        <th>SobreNome</th>
-    </tr>    
-<?php 
-foreach($pacientes as $paciente):
-?>
-    <tr>
-        <td><?= $paciente->getNome(); ?></td>
-        <td><?= $paciente->getSobrenome(); ?></td>
-    </tr>
 <?php
+$id = 0;
+$id_atual = '';
+echo '<dl>';
+foreach($pacientes as $paciente):    
+    $id_atual = $paciente->getPacienteId();
+    if($id != $id_atual){          
+        echo '<dt>'.$paciente->getNome().' '.$paciente->getSobrenome().'</dt>';
+        echo '<dt>Contatos:</dt>'; 
+        echo '<dd>'.$paciente->getNomeContato().' - '.$paciente->getTelefone().'<dd/>';
+    }else{
+        echo '<dd>'.$paciente->getNomeContato().' - '.$paciente->getTelefone().'<dd/>';
+    }  
+    $id = $id_atual;
 endforeach;
+echo '</dl>';
 ?>
-</table>

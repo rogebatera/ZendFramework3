@@ -16,7 +16,7 @@ class PacienteController extends AbstractActionController{
 
     public function indexAction()
     {
-        return new ViewModel(['pacientes' => $this->table->getAll()]);
+        return new ViewModel(['pacientes' => $this->table->getPacientes()]);
     }
 
 }
